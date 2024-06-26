@@ -11,7 +11,7 @@ export default function HomeHeader() {
           {/* Sign In button */}
           <SignInButton
             className={
-              "hidden rounded-full border border-blue-800 p-2 text-blue-800 shadow shadow-blue-200 hover:shadow-sm active:bg-blue-800 active:text-white sm:block"
+              "hidden rounded-full border border-primary p-2 text-primary shadow shadow-primary-lighter hover:shadow-sm active:bg-primary active:text-white sm:block"
             }
           />
         </div>

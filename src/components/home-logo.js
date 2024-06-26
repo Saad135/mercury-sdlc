@@ -4,7 +4,7 @@ export default function HomeLogo() {
   return (
     <>
       <Link href="/">
-        <p className="text-3xl font-semibold text-blue-800">Mercury</p>
+        <p className="text-3xl font-semibold text-primary">Mercury</p>
       </Link>
     </>
   );

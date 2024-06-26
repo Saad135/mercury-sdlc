@@ -23,7 +23,7 @@ export default function AttractionCard({ mediaUrl, title }) {
 
         {/* Card title */}
         <div className="w-full">
-          <p className="my-2 cursor-pointer text-xl font-medium text-blue-800 hover:underline">
+          <p className="my-2 cursor-pointer text-xl font-medium text-primary hover:underline">
             {title ? title : "Exciting Event"}
           </p>
         </div>
