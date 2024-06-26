@@ -1,7 +1,8 @@
 import "./globals.css";
 
 import { Inter } from "next/font/google";
-import Link from "next/link";
+
+import HomeHeader from "@/components/home-header";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -15,20 +16,7 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <body className={`${inter.className} bg-gray-100`}>
         {/* Header */}
-        <div className="w-full bg-white">
-          <div className="container mx-auto mb-4 flex items-center justify-between p-4">
-            <Link href="/">
-              <p className="text-3xl font-semibold text-blue-800">Mercury</p>
-            </Link>
-
-            {/* Sign In button */}
-            <div>
-              <button className="rounded-full border border-blue-800 p-2 text-blue-800 shadow shadow-blue-200 hover:shadow-sm active:bg-blue-800 active:text-white">
-                Sign in
-              </button>
-            </div>
-          </div>
-        </div>
+        <HomeHeader />
 
         {/* Children */}
         {children}
