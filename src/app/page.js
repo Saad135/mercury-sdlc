@@ -3,7 +3,7 @@ import SignInButton from "@/components/sigin-button";
 
 export default function Home() {
   return (
-    <div className="grow">
+    <div className="grow overflow-auto">
       {/* List of cards */}
       <AttractionList listName={"Attractions"} />
 
