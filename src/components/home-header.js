@@ -1,5 +1,7 @@
 import Link from "next/link";
 
+import SignInButton from "./sigin-button";
+
 export default function HomeHeader() {
   return (
     <>
@@ -10,11 +12,7 @@ export default function HomeHeader() {
           </Link>
 
           {/* Sign In button */}
-          <div>
-            <button className="rounded-full border border-blue-800 p-2 text-blue-800 shadow shadow-blue-200 hover:shadow-sm active:bg-blue-800 active:text-white">
-              Sign in
-            </button>
-          </div>
+          <SignInButton />
         </div>
       </div>
     </>
