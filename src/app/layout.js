@@ -12,7 +12,22 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={`${inter.className} bg-gray-100`}>{children}</body>
+      <body className={`${inter.className} bg-gray-100`}>
+        {/* Header */}
+        <div className="container mx-auto mb-4 flex items-center justify-between bg-white p-4">
+          <p>Mercury</p>
+
+          {/* Sign In button */}
+          <div>
+            <button className="rounded-full border border-blue-800 p-2 text-blue-800 shadow shadow-blue-200 hover:shadow-sm active:bg-blue-800 active:text-white">
+              Sign in
+            </button>
+          </div>
+        </div>
+
+        {/* Children */}
+        {children}
+      </body>
     </html>
   );
 }
