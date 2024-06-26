@@ -15,11 +15,13 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className={`${inter.className} bg-gray-100`}>
-        {/* Header */}
-        <HomeHeader />
+        <div className="relative flex h-screen flex-col overflow-hidden">
+          {/* Header */}
+          <HomeHeader />
 
-        {/* Children */}
-        {children}
+          {/* Children */}
+          {children}
+        </div>
       </body>
     </html>
   );
