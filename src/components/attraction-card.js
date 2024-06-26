@@ -1,10 +1,10 @@
 import Image from "next/image";
 
-export default function AttractionCard({ mediaUrl }) {
+export default function AttractionCard({ mediaUrl, title }) {
   return (
     <>
       {/* Card */}
-      <div className="mx-2 mb-4 mt-2 border border-blue-900 text-center shadow-lg sm:w-1/3 lg:w-1/4">
+      <div className="mx-2 mb-4 mt-2 border text-center shadow-lg sm:w-1/3 lg:w-1/4">
         {/* Card Image */}
         <div className="relative h-72 w-full">
           <Image
@@ -22,7 +22,11 @@ export default function AttractionCard({ mediaUrl }) {
         </div>
 
         {/* Card title */}
-        <p>Title</p>
+        <div className="w-full">
+          <p className="my-2 cursor-pointer text-xl font-medium text-blue-800 hover:underline">
+            {title ? title : "Exciting Event"}
+          </p>
+        </div>
       </div>
     </>
   );

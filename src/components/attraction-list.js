@@ -7,7 +7,7 @@ export default function AttractionList({ listName }) {
         <p className="mb-2">{listName}</p>
 
         {/* Card list */}
-        <div className="w-full border border-green-900 sm:flex sm:flex-wrap sm:justify-around">
+        <div className="w-full sm:flex sm:flex-wrap sm:justify-around">
           {/* Card */}
           <AttractionCard />
           <AttractionCard />
