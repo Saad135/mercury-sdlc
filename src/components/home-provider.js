@@ -1,11 +1,13 @@
 "use client";
 import { createContext, useContext, useState } from "react";
 
+import { reformatAttractionArr } from "@/utils/home-utils";
+
 const HomeContext = createContext(null);
 
-export default function HomeProvider({ children }) {
+export default function HomeProvider({ fetchedAttractionArr, children }) {
   // Default values for the states
-  const defaultStateVals = getDefaults();
+  const defaultStateVals = getDefaults({ fetchedAttractionArr });
 
   // State for list of cards
   const [attractionArr, setAttractionArr] = useState(
@@ -26,8 +28,10 @@ export function useHomeStates() {
   return context;
 }
 
-function getDefaults() {
-  const defaultAttractionsArr = [1, 2, 3, 4, 5, 6, 7];
+function getDefaults({ ...props }) {
+  const defaultAttractionsArr = props?.fetchedAttractionArr
+    ? reformatAttractionArr(props?.fetchedAttractionArr)
+    : [1, 2, 3, 4, 5, 6, 7];
 
   return { defaultAttractionsArr };
 }
