@@ -1,7 +1,7 @@
 "use client";
-import { useState } from "react";
 
 import AttractionCard from "./attraction-card";
+import { useHomeStates } from "./home-provider";
 
 export default function AttractionList({ listName }) {
   // States
@@ -30,8 +30,7 @@ export default function AttractionList({ listName }) {
 
 function useAttractionListStates() {
   // State for list of cards
-  // eslint-disable-next-line unused-imports/no-unused-vars
-  const [attractionArr, setAttractionArr] = useState([1, 2, 3, 4, 5, 6, 7]);
+  const stateArr = useHomeStates();
 
-  return { attractionArr, setAttractionArr };
+  return stateArr;
 }
