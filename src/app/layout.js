@@ -3,7 +3,7 @@ import "./globals.css";
 import { Inter } from "next/font/google";
 
 import HomeHeader from "@/components/home-header";
-import HomeProvider from "@/components/home-provider";
+import HomeServer from "@/components/home-server";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -20,10 +20,10 @@ export default function RootLayout({ children }) {
           {/* Header */}
           <HomeHeader />
 
-          <HomeProvider>
+          <HomeServer>
             {/* Children */}
             {children}
-          </HomeProvider>
+          </HomeServer>
         </div>
       </body>
     </html>
