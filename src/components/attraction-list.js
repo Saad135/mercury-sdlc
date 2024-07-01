@@ -5,7 +5,7 @@ import AttractionCard from "./attraction-card";
 
 export default function AttractionList({ listName }) {
   // States
-  const { attractionArr } = useAttractionListStates();
+  const statesArr = useAttractionListStates();
 
   return (
     <>
@@ -15,7 +15,7 @@ export default function AttractionList({ listName }) {
         {/* Card list */}
         <div className="w-full sm:flex sm:flex-wrap sm:justify-around">
           {/* Cards */}
-          {attractionArr?.map((attractionItem, idx) => (
+          {statesArr?.attractionArr?.map((attractionItem, idx) => (
             <AttractionCard
               mediaUrl={attractionItem?.mediaUrl}
               title={attractionItem?.title}
