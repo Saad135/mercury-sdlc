@@ -18,14 +18,33 @@ export default function RootLayout({ children }) {
       <body className={`${inter.className} bg-gray-100`}>
         <div className="relative flex h-screen flex-col overflow-hidden">
           {/* Header */}
-          <HomeHeader />
+          <RootHeader />
 
-          <HomeServer>
+          <RootMain>
             {/* Children */}
             {children}
-          </HomeServer>
+          </RootMain>
         </div>
       </body>
     </html>
+  );
+}
+
+function RootHeader() {
+  return (
+    <>
+      <HomeHeader />
+    </>
+  );
+}
+
+function RootMain({ children }) {
+  return (
+    <>
+      <HomeServer>
+        {/* Children */}
+        {children}
+      </HomeServer>
+    </>
   );
 }
