@@ -9,18 +9,23 @@ export default function HomeProvider({ fetchedAttractionArr, children }) {
   // Default values for the states
   const defaultStateVals = getDefaults({ fetchedAttractionArr });
 
+  // Object containing all the states
+  const stateObj = useInternalStates(defaultStateVals);
+
+  return (
+    <>
+      <HomeContext.Provider value={stateObj}>{children}</HomeContext.Provider>
+    </>
+  );
+}
+
+function useInternalStates(defaultStateVals) {
   // State for list of cards
   const [attractionArr, setAttractionArr] = useState(
     defaultStateVals?.defaultAttractionsArr,
   );
 
-  return (
-    <>
-      <HomeContext.Provider value={{ attractionArr, setAttractionArr }}>
-        {children}
-      </HomeContext.Provider>
-    </>
-  );
+  return { attractionArr, setAttractionArr };
 }
 
 export function useHomeStates() {
