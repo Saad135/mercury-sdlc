@@ -15,6 +15,16 @@ export default function HomeHeader() {
             }
           />
         </div>
+
+        {/* Sign in button for smaller screens */}
+        {/* Signin button showing up at the bottom for small screens */}
+        <div className="absolute inset-x-0 bottom-0 z-50 my-10 px-4 sm:hidden">
+          <SignInButton
+            className={
+              "w-full rounded-full border border-primary bg-primary p-2 text-white shadow shadow-primary-lighter hover:shadow-sm active:bg-white active:text-primary"
+            }
+          />
+        </div>
       </div>
     </>
   );
