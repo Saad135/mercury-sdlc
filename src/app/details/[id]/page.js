@@ -1,5 +1,5 @@
 import Container from "@/components/container";
-import EventImage from "@/components/event-image";
+import EventImage from "@/components/events/event-image";
 
 export default function DetailsPage({ params }) {
   return (

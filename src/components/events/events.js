@@ -1,3 +1,3 @@
-export * from "@/components/event-card";
-export * from "@/components/event-image";
-export * from "@/components/event-list";
+export * from "@/components/events/event-card";
+export * from "@/components/events/event-image";
+export * from "@/components/events/event-list";
