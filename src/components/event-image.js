@@ -1,9 +1,9 @@
 /* eslint-disable @next/next/no-img-element */
-export default function EventImage({ mediaUrl }) {
+export default function EventImage({ className, mediaUrl }) {
   return (
     <>
       <img
-        className="size-full object-cover"
+        className={className ? className : "size-full object-cover"}
         src={
           mediaUrl
             ? mediaUrl
