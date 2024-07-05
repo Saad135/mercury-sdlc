@@ -1,17 +1,17 @@
 "use client";
 
 import Container from "../container";
-import EventCard from "./event-card";
 import { useHomeStates } from "../home-provider";
+import EventCard from "./event-card";
 
 export default function EventList({ listName }) {
   return (
     <>
-      <EventContainer>
+      <ListContainer>
         <p className="mb-2 text-xl">{listName}</p>
 
         <ListCards />
-      </EventContainer>
+      </ListContainer>
     </>
   );
 }
@@ -38,7 +38,7 @@ function ListCards() {
   );
 }
 
-function EventContainer({ children }) {
+function ListContainer({ children }) {
   return (
     <>
       <Container>{children}</Container>
