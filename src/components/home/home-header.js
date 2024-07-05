@@ -1,5 +1,5 @@
+import SignInButton from "../sigin-button";
 import HomeLogo from "./home-logo";
-import SignInButton from "./sigin-button";
 
 export default function HomeHeader() {
   return (
