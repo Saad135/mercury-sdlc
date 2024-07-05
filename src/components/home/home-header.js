@@ -18,6 +18,19 @@ export default function HomeHeader() {
 function HeaderSignIn() {
   return (
     <>
+      <SignInButton
+        className={
+          "rounded-full border border-primary bg-primary p-2 text-white shadow hover:bg-primary/90 hover:shadow-sm active:bg-white active:text-primary"
+        }
+      />
+    </>
+  );
+}
+
+// eslint-disable-next-line unused-imports/no-unused-vars
+function SignInButtonForSmallScreens() {
+  return (
+    <>
       {/* Signin button showing up at the bottom for small screens */}
       <div className="absolute inset-x-0 bottom-0 z-50 my-10 px-4 sm:relative sm:z-0 sm:my-0 sm:px-4">
         {/* Sign In button */}
