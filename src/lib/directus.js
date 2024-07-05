@@ -78,8 +78,8 @@ export async function fetchAttractions() {
 export async function fetchAttractionById({ id }) {
   let dataArr = [];
 
-  const endpoint = "/items/attractions?filter[id][_eq]" + id;
-  const errorMessage = "Could not fetch attraction by id";
+  const endpoint = "/items/attractions?filter[id][_eq]=" + id;
+  const errorMessage = "Could not fetch attraction by id: " + id;
 
   const queryResult = await callDirectusApi({
     endpoint,
