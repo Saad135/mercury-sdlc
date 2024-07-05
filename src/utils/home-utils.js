@@ -4,7 +4,7 @@ export function reformatEventsArr(attractionArr) {
   return reformatArr(attractionArr, reformatEventItem);
 }
 
-function reformatEventItem(attrItem) {
+export function reformatEventItem(attrItem) {
   return {
     id: attrItem?.id,
     title: attrItem?.title,
