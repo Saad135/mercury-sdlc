@@ -5,9 +5,9 @@ import { reformatAttractionArr } from "@/utils/home-utils";
 
 const HomeContext = createContext(null);
 
-export default function HomeProvider({ fetchedAttractionArr, children }) {
+export default function HomeProvider({ children, homeData }) {
   // Default values for the states
-  const defaultStateVals = getDefaults({ fetchedAttractionArr });
+  const defaultStateVals = getDefaults({ homeData });
 
   // Object containing all the states
   const stateObj = useInternalStates(defaultStateVals);
@@ -33,9 +33,9 @@ export function useHomeStates() {
   return context;
 }
 
-function getDefaults({ ...props }) {
-  const defaultAttractionsArr = props?.fetchedAttractionArr
-    ? reformatAttractionArr(props?.fetchedAttractionArr)
+function getDefaults({ homeData }) {
+  const defaultAttractionsArr = homeData?.attractionArr
+    ? reformatAttractionArr(homeData?.attractionArr)
     : [1, 2, 3, 4, 5, 6, 7];
 
   return { defaultAttractionsArr };

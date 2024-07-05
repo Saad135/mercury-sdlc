@@ -5,14 +5,21 @@ import HomeProvider from "./home-provider";
 export default async function HomeServer({ children }) {
   // Data fetching
   // Fetch attractions
-  const attractionArr = await fetchAttractions();
+  const homeData = await fetchHomeData();
 
   return (
     <>
-      <HomeProvider fetchedAttractionArr={attractionArr}>
+      <HomeProvider homeData={homeData}>
         {/* Children */}
         {children}
       </HomeProvider>
     </>
   );
+}
+
+async function fetchHomeData() {
+  // Fetch attractions
+  const attractionArr = await fetchAttractions();
+
+  return { attractionArr };
 }
