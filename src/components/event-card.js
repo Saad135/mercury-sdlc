@@ -8,27 +8,7 @@ export default function EventCard({ mediaUrl, title, id }) {
       <div className="mx-2 mb-4 mt-2 border text-center shadow-lg sm:w-1/3 lg:w-1/4">
         {/* Card Image */}
         <div className="relative h-72 w-full">
-          <img
-            className="size-full object-cover"
-            src={
-              mediaUrl
-                ? mediaUrl
-                : "https://images.unsplash.com/photo-1501256504904-1fbe305bb538"
-            }
-            alt="photo"
-          />
-          {/* <Image
-            className="size-full object-cover"
-            src={
-              mediaUrl
-                ? mediaUrl
-                : "https://images.unsplash.com/photo-1501256504904-1fbe305bb538"
-            }
-            alt="photo"
-            style={{ objectFit: "cover" }}
-            sizes="(max-width: 768px) 50vw, 20vw"
-            fill
-          /> */}
+          <CardImage mediaUrl={mediaUrl} />
         </div>
 
         {/* Card title */}
@@ -40,6 +20,22 @@ export default function EventCard({ mediaUrl, title, id }) {
           </div>
         </Link>
       </div>
+    </>
+  );
+}
+
+function CardImage({ mediaUrl }) {
+  return (
+    <>
+      <img
+        className="size-full object-cover"
+        src={
+          mediaUrl
+            ? mediaUrl
+            : "https://images.unsplash.com/photo-1501256504904-1fbe305bb538"
+        }
+        alt="photo"
+      />
     </>
   );
 }
