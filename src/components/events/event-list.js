@@ -1,7 +1,7 @@
 "use client";
 
 import Container from "../container";
-import { useHomeStates } from "../home-provider";
+import { useHomeStates } from "../home/home-provider";
 import EventCard from "./event-card";
 
 export default function EventList({ listName }) {

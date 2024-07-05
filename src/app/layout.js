@@ -2,8 +2,8 @@ import "./globals.css";
 
 import { Inter } from "next/font/google";
 
-import HomeHeader from "@/components/home-header";
-import HomeServer from "@/components/home-server";
+import HomeHeader from "@/components/home/home-header";
+import HomeServer from "@/components/home/home-server";
 
 const inter = Inter({ subsets: ["latin"] });
 
