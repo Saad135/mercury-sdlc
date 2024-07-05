@@ -1,6 +1,7 @@
 "use client";
 
 import AttractionCard from "./attraction-card";
+import Container from "./container";
 import { useHomeStates } from "./home-provider";
 
 export default function AttractionList({ listName }) {
@@ -9,7 +10,7 @@ export default function AttractionList({ listName }) {
 
   return (
     <>
-      <div className="my-2 rounded-xl bg-white p-4 shadow sm:container sm:mx-auto">
+      <AttractionContainer>
         <p className="mb-2 text-xl">{listName}</p>
 
         {/* Card list */}
@@ -23,7 +24,15 @@ export default function AttractionList({ listName }) {
             />
           ))}
         </div>
-      </div>
+      </AttractionContainer>
+    </>
+  );
+}
+
+function AttractionContainer({ children }) {
+  return (
+    <>
+      <Container>{children}</Container>
     </>
   );
 }
