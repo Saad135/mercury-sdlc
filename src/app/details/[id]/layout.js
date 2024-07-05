@@ -1,20 +1,18 @@
+import DetailsServer from "@/components/details/details-server";
+
 export default function DetailsLayout({ params, children }) {
   return (
     <>
-      <DetailsMain>{children}</DetailsMain>
+      <DetailsMain id={params?.id}>{children}</DetailsMain>
     </>
   );
 }
 
-function DetailsMain({ children }) {
+function DetailsMain({ id, children }) {
   return (
     <>
-      {/* <HomeServer>
-          {children}
-        </HomeServer> */}
       <div>
-        {/* Children */}
-        {children}
+        <DetailsServer id={id}>{children}</DetailsServer>
       </div>
     </>
   );
