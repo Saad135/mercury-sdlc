@@ -30,6 +30,7 @@ function ListCards() {
             mediaUrl={attractionItem?.mediaUrl}
             title={attractionItem?.title}
             key={idx}
+            id={attractionItem?.id}
           />
         ))}
       </div>
