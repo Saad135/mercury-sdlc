@@ -1,3 +1,3 @@
-export default function DetailsLayout({ children }) {
+export default function DetailsLayout({ params, children }) {
   return <>{children}</>;
 }
