@@ -1,4 +1,4 @@
-import { fetchAttractionsFromDirectus } from "@/lib/directus";
+import { fetchAttractions } from "@/lib/directus";
 
 import HomeProvider from "./home-provider";
 
@@ -19,7 +19,7 @@ export default async function HomeServer({ children }) {
 
 async function fetchHomeData() {
   // Fetch attractions
-  const attractionArr = await fetchAttractionsFromDirectus();
+  const attractionArr = await fetchAttractions();
 
   return { attractionArr };
 }
