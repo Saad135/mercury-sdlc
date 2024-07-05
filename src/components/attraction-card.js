@@ -1,5 +1,7 @@
+import Link from "next/link";
+
 /* eslint-disable @next/next/no-img-element */
-export default function AttractionCard({ mediaUrl, title }) {
+export default function AttractionCard({ mediaUrl, title, id }) {
   return (
     <>
       {/* Card */}
@@ -30,11 +32,13 @@ export default function AttractionCard({ mediaUrl, title }) {
         </div>
 
         {/* Card title */}
-        <div className="w-full">
-          <p className="my-2 cursor-pointer text-xl font-medium text-primary hover:underline">
-            {title ? title : "Exciting Event"}
-          </p>
-        </div>
+        <Link href={id ? "/details/" + id : "/#"}>
+          <div className="w-full">
+            <p className="my-2 cursor-pointer text-xl font-medium text-primary hover:underline">
+              {title ? title : "Exciting Event"}
+            </p>
+          </div>
+        </Link>
       </div>
     </>
   );
