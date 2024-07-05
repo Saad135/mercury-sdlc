@@ -1,10 +1,10 @@
 import { reformatArr } from "./common-utls";
 
-export function reformatAttractionArr(attractionArr) {
-  return reformatArr(attractionArr, reformatAttrItem);
+export function reformatEventsArr(attractionArr) {
+  return reformatArr(attractionArr, reformatEventItem);
 }
 
-function reformatAttrItem(attrItem) {
+function reformatEventItem(attrItem) {
   return {
     id: attrItem?.id,
     title: attrItem?.title,

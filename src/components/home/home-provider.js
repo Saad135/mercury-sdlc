@@ -1,7 +1,7 @@
 "use client";
 import { createContext, useContext, useState } from "react";
 
-import { reformatAttractionArr } from "@/utils/home-utils";
+import { reformatEventsArr } from "@/utils/home-utils";
 
 const HomeContext = createContext(null);
 
@@ -35,7 +35,7 @@ export function useHomeStates() {
 
 function getDefaults({ homeData }) {
   const defaultAttractionsArr = homeData?.attractionArr
-    ? reformatAttractionArr(homeData?.attractionArr)
+    ? reformatEventsArr(homeData?.attractionArr)
     : [1, 2, 3, 4, 5, 6, 7];
 
   return { defaultAttractionsArr };
