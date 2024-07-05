@@ -88,7 +88,7 @@ export async function fetchAttractionById({ id }) {
   });
 
   if (queryResult) {
-    dataArr = queryResult.data;
+    dataArr = queryResult.data[0];
   }
 
   return dataArr;
