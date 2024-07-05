@@ -1,4 +1,6 @@
 "use client";
+import Link from "next/link";
+
 import Container from "@/components/container";
 import { useDetailsPageStates } from "@/components/details/details-provider";
 import EventImage from "@/components/events/event-image";
@@ -12,7 +14,29 @@ export default function DetailsPage() {
         <EventTitle />
 
         <EventDescription />
+
+        <LearnMoreLink />
       </Container>
+    </>
+  );
+}
+
+function LearnMoreLink() {
+  const context = useDetailsPageStates();
+
+  if (!context?.event?.permalink) {
+    return <></>;
+  }
+
+  return (
+    <>
+      <Link
+        className="my-4 rounded-xl bg-primary p-2 text-white hover:bg-primary/90 active:border active:border-primary active:bg-white active:text-primary"
+        href={context?.event?.permalink}
+        target="_blank"
+      >
+        Learn More
+      </Link>
     </>
   );
 }
