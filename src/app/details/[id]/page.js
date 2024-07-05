@@ -9,13 +9,25 @@ export default function DetailsPage({ params }) {
       <Container>
         <HeroImage />
 
-        {/* Title */}
-        <div className="my-4">
-          <p className="text-2xl font-medium">Title</p>
-        </div>
+        <MainTitle />
 
         <div className="my-4">Hi {params?.id}</div>
       </Container>
+    </>
+  );
+}
+
+function MainTitle() {
+  const context = useDetailsPageStates();
+
+  return (
+    <>
+      {/* Title */}
+      <div className="my-4">
+        <p className="text-2xl font-medium">
+          {context?.event?.title ? context?.event?.title : "Exciting Event"}
+        </p>
+      </div>
     </>
   );
 }
