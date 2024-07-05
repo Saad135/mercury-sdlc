@@ -1,24 +1,24 @@
 "use client";
 
-import AttractionCard from "./attraction-card";
 import Container from "./container";
+import EventCard from "./event-card";
 import { useHomeStates } from "./home-provider";
 
-export default function AttractionList({ listName }) {
+export default function EventList({ listName }) {
   return (
     <>
-      <AttractionContainer>
+      <EventContainer>
         <p className="mb-2 text-xl">{listName}</p>
 
         <ListCards />
-      </AttractionContainer>
+      </EventContainer>
     </>
   );
 }
 
 function ListCards() {
   // States
-  const statesArr = useAttractionListStates();
+  const statesArr = useEventListStates();
 
   return (
     <>
@@ -26,7 +26,7 @@ function ListCards() {
       <div className="w-full sm:flex sm:flex-wrap sm:justify-around">
         {/* Cards */}
         {statesArr?.attractionArr?.map((attractionItem, idx) => (
-          <AttractionCard
+          <EventCard
             mediaUrl={attractionItem?.mediaUrl}
             title={attractionItem?.title}
             key={idx}
@@ -38,7 +38,7 @@ function ListCards() {
   );
 }
 
-function AttractionContainer({ children }) {
+function EventContainer({ children }) {
   return (
     <>
       <Container>{children}</Container>
@@ -46,7 +46,7 @@ function AttractionContainer({ children }) {
   );
 }
 
-function useAttractionListStates() {
+function useEventListStates() {
   // State for list of cards
   const stateArr = useHomeStates();
 
