@@ -56,7 +56,7 @@ async function callDirectusApi({
   return queryResult;
 }
 
-export async function fetchAttractions() {
+export async function fetchAttractionsFromDirectus() {
   let dataArr = [];
 
   const endpoint = "/items/attractions";
