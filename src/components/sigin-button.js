@@ -1,7 +1,9 @@
-export default function SignInButton({ className }) {
+export default function SignInButton({ className, onClickHandler }) {
   return (
     <>
-      <button className={className}>Sign in</button>
+      <button onClick={onClickHandler} className={className}>
+        Sign in
+      </button>
     </>
   );
 }
