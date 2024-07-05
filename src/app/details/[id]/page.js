@@ -4,11 +4,12 @@ import Link from "next/link";
 import Container from "@/components/container";
 import { useDetailsPageStates } from "@/components/details/details-provider";
 import EventImage from "@/components/events/event-image";
+import MainDiv from "@/components/main-div";
 
 export default function DetailsPage() {
   return (
     <>
-      <Container>
+      <DetailsMain>
         <HeroImage />
 
         <EventTitle />
@@ -16,7 +17,17 @@ export default function DetailsPage() {
         <EventDescription />
 
         <LearnMoreLink />
-      </Container>
+      </DetailsMain>
+    </>
+  );
+}
+
+function DetailsMain({ children }) {
+  return (
+    <>
+      <MainDiv>
+        <Container>{children}</Container>
+      </MainDiv>
     </>
   );
 }
