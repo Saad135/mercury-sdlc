@@ -39,6 +39,7 @@ export const authOptions = {
         },
       },
       from: process.env.EMAIL_FROM,
+      maxAge: 60 * 60,
     }),
   ],
 
