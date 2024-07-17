@@ -2,6 +2,7 @@
 
 import { createContext, useContext, useState } from "react";
 
+import { updateEventsInSession } from "@/app/actions";
 import { toggleItemInArr } from "@/utils/utils";
 
 const AppContext = createContext(null);
@@ -32,6 +33,9 @@ function useInternalStates(defaultStateVals) {
     });
 
     setSavedEventArr(newEventArr);
+
+    // Save in session
+    updateEventsInSession({ eventArr: newEventArr });
   };
 
   return {
