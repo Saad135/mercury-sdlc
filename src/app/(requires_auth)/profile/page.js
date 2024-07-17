@@ -1,3 +1,5 @@
+"use client";
+import { useCommonAppStates } from "@/components/common-states-provider";
 import Container from "@/components/container";
 import EventList, { ListCards } from "@/components/events/event-list";
 
@@ -32,15 +34,20 @@ export default function ProfilePage() {
 }
 
 function PanelContentEvents({ className }) {
-  const testObj = { attractionArr: [1, 2, 3, 4] };
+  const statesObj = {};
+  const commonStatesContext = useCommonAppStates();
+
+  statesObj.attractionArr = commonStatesContext?.savedEventArr;
 
   return (
     <>
       <EventList containerClassName={className} listName={"Master List"}>
         <ListCards
           cardClassName={"mx-2 mb-4 mt-2 border text-center shadow-lg w-full"}
-          statesObj={testObj}
+          statesObj={statesObj}
           isGroupedByCategory={false}
+          toggleClb={commonStatesContext?.toggleSavedEventArr}
+          savedEventArr={commonStatesContext?.savedEventArr}
         ></ListCards>
       </EventList>
     </>

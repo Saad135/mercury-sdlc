@@ -1,3 +1,4 @@
+"use client";
 import { useRouter } from "next/navigation";
 
 import SignInButton from "../sigin-button";
