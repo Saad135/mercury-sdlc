@@ -30,7 +30,9 @@ function useInternalStates(defaultStateVals) {
     defaultStateVals?.defaultCategoriesArr,
   );
 
-  const [selectedCategory, setSelectedCategory] = useState("");
+  const [selectedCategory, setSelectedCategory] = useState(
+    defaultStateVals?.defaultCategoriesArr[0],
+  );
 
   return {
     attractionArr,
