@@ -26,3 +26,13 @@ export async function fetchEventsFromSession() {
 
   return eventArr;
 }
+
+export async function updateEventsInSession({ eventArr }) {
+  const session = await getIronSessionObj();
+
+  session.eventArr = eventArr;
+
+  //   console.log(session);
+
+  await session.save();
+}
