@@ -16,7 +16,12 @@ export default function EventList({ listName, containerClassName, children }) {
   );
 }
 
-export function ListCards({ statesObj, className, cardClassName }) {
+export function ListCards({
+  statesObj,
+  className,
+  cardClassName,
+  showToggle = true,
+}) {
   // States
 
   return (
@@ -38,7 +43,9 @@ export function ListCards({ statesObj, className, cardClassName }) {
             id={attractionItem?.id}
             className={cardClassName}
           >
-            <ToggleSelection extraClassnames="absolute right-0 top-0 z-30 " />
+            {showToggle && (
+              <ToggleSelection extraClassnames="absolute right-0 top-0 z-30 " />
+            )}
           </EventCard>
         ))}
       </div>
