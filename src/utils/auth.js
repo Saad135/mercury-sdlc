@@ -49,6 +49,12 @@ export const authOptions = {
   callbacks: {
     async signIn({ user, account, profile, email, credentials }) {
       // console.log(user, account, profile, email, credentials);
+
+      //   https://next-auth.js.org/configuration/callbacks#sign-in-callbacks
+      if (email?.verificationRequest) {
+        return true;
+      }
+
       let isAllowedToSignIn = null;
 
       let fetchedUser = await fetchUser({ email: user?.email });
