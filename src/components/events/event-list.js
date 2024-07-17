@@ -5,10 +5,8 @@ import EventCard from "./event-card";
 
 export default function EventList({
   listName,
-  statesObj,
   containerClassName,
-  cardsClassName,
-  cardItemClassName,
+
   children,
 }) {
   return (
@@ -16,19 +14,13 @@ export default function EventList({
       <ListContainer className={containerClassName}>
         <p className="mb-2 text-xl">{listName}</p>
 
-        <ListCards
-          className={cardsClassName}
-          statesObj={statesObj}
-          cardClassName={cardItemClassName}
-        >
-          {children}
-        </ListCards>
+        {children}
       </ListContainer>
     </>
   );
 }
 
-function ListCards({ statesObj, className, cardClassName }) {
+export function ListCards({ statesObj, className, cardClassName }) {
   // States
 
   return (
