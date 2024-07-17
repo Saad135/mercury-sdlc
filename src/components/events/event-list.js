@@ -9,6 +9,7 @@ export default function EventList({
   containerClassName,
   cardsClassName,
   cardItemClassName,
+  children,
 }) {
   return (
     <>
@@ -19,7 +20,9 @@ export default function EventList({
           className={cardsClassName}
           statesObj={statesObj}
           cardClassName={cardItemClassName}
-        />
+        >
+          {children}
+        </ListCards>
       </ListContainer>
     </>
   );
