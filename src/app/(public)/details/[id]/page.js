@@ -4,6 +4,7 @@ import Link from "next/link";
 import Container from "@/components/container";
 import { useDetailsPageStates } from "@/components/details/details-provider";
 import EventImage from "@/components/events/event-image";
+import ToggleSelection from "@/components/events/toggle-save";
 import MainDiv from "@/components/main-div";
 
 export default function DetailsPage() {
@@ -14,10 +15,20 @@ export default function DetailsPage() {
 
         <EventTitle />
 
+        <ToggleButton />
+
         <EventDescription />
 
         <LearnMoreLink />
       </DetailsMain>
+    </>
+  );
+}
+
+function ToggleButton() {
+  return (
+    <>
+      <ToggleSelection showToggleDesc extraClassnames="border border-primary" />
     </>
   );
 }
