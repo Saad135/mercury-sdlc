@@ -4,12 +4,7 @@ import Container from "../container";
 import EventCard from "./event-card";
 import ToggleSelection from "./toggle-save";
 
-export default function EventList({
-  listName,
-  containerClassName,
-
-  children,
-}) {
+export default function EventList({ listName, containerClassName, children }) {
   return (
     <>
       <ListContainer className={containerClassName}>
