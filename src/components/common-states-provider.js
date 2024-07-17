@@ -6,9 +6,9 @@ import { toggleItemInArr } from "@/utils/utils";
 
 const AppContext = createContext(null);
 
-export default function AppProvider({ children }) {
+export default function AppProvider({ children, defaultVals }) {
   // Default values for the states
-  const defaultStateVals = getDefaults();
+  const defaultStateVals = getDefaults(defaultVals);
 
   // Object containing all the states
   const stateObj = useInternalStates(defaultStateVals);
@@ -43,10 +43,12 @@ export function useCommonAppStates() {
   return context;
 }
 
-function getDefaults() {
+function getDefaults(defaultVals) {
   const defaultObj = {};
 
-  defaultObj.savedEventsArr = [];
+  defaultObj.savedEventsArr = defaultVals?.savedEventArr
+    ? defaultVals?.savedEventArr
+    : [];
 
   return defaultObj;
 }
