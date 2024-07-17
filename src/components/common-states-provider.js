@@ -2,7 +2,7 @@
 
 import { createContext, useContext, useState } from "react";
 
-import { toggleItemInArr } from "@/lib/utils";
+import { toggleItemInArr } from "@/utils/utils";
 
 const AppContext = createContext(null);
 
