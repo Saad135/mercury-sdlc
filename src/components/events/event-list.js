@@ -21,7 +21,6 @@ export function ListCards({
   className,
   cardClassName,
   showToggle = true,
-  selectedCategory,
   isGroupedByCategory = true,
 }) {
   // States
@@ -41,7 +40,7 @@ export function ListCards({
           if (
             isGroupedByCategory &&
             (!attractionItem?.category ||
-              attractionItem?.category !== selectedCategory)
+              attractionItem?.category !== statesObj?.selectedCategory)
           ) {
             return null;
           }
