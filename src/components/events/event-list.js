@@ -3,10 +3,10 @@
 import Container from "../container";
 import EventCard from "./event-card";
 
-export default function EventList({ listName, statesObj }) {
+export default function EventList({ listName, statesObj, containerClassName }) {
   return (
     <>
-      <ListContainer>
+      <ListContainer className={containerClassName}>
         <p className="mb-2 text-xl">{listName}</p>
 
         <ListCards statesObj={statesObj} />
@@ -36,10 +36,10 @@ function ListCards({ statesObj }) {
   );
 }
 
-function ListContainer({ children }) {
+function ListContainer({ children, className }) {
   return (
     <>
-      <Container>{children}</Container>
+      <Container className={className}>{children}</Container>
     </>
   );
 }
