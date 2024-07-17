@@ -25,7 +25,9 @@ export default function ToggleSelection({
 
   return (
     <>
-      <div
+      <button
+        type="button"
+        disabled={isLoading}
         onClick={() => handleClick({ clickCallback: clickCallback })}
         className={`m-1 flex cursor-pointer justify-center rounded-full p-2 shadow ${
           !isActive
@@ -35,7 +37,7 @@ export default function ToggleSelection({
       >
         {isLoading ? <Spinner /> : !isActive ? <PlusSign /> : <CheckMark />}
         {showToggleDesc && <span>{!isActive ? "Add" : "Remove"}</span>}
-      </div>
+      </button>
     </>
   );
 }
