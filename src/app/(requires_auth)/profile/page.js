@@ -1,5 +1,5 @@
 import Container from "@/components/container";
-import EventList from "@/components/events/event-list";
+import EventList, { ListCards } from "@/components/events/event-list";
 
 export default function ProfilePage() {
   return (
@@ -36,13 +36,12 @@ function PanelContentEvents({ className }) {
 
   return (
     <>
-      <EventList
-        containerClassName={className}
-        listName={"Master List"}
-        statesObj={testObj}
-        cardsClassName={"w-full"}
-        cardItemClassName={"mx-2 mb-4 mt-2 border text-center shadow-lg w-full"}
-      />
+      <EventList containerClassName={className} listName={"Master List"}>
+        <ListCards
+          cardClassName={"mx-2 mb-4 mt-2 border text-center shadow-lg w-full"}
+          statesObj={testObj}
+        ></ListCards>
+      </EventList>
     </>
   );
 }
