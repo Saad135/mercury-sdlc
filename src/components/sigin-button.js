@@ -1,8 +1,8 @@
-export default function SignInButton({ className, onClickHandler }) {
+export default function SignInButton({ btnText, className, onClickHandler }) {
   return (
     <>
       <BaseButton
-        btnText={"Sign In"}
+        btnText={btnText ? btnText : "Sign In"}
         className={className}
         onClickHandler={onClickHandler}
       />

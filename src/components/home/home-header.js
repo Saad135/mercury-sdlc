@@ -1,5 +1,6 @@
 "use client";
 import { useRouter } from "next/navigation";
+import { useSession } from "next-auth/react";
 
 import SignInButton from "../sigin-button";
 import HomeLogo from "./home-logo";
@@ -31,11 +32,17 @@ export function HeaderBase({ children }) {
 function HeaderSignIn() {
   const router = useRouter();
 
+  const { status } = useSession();
+
+  const routeUrl = status === "authenticated" ? "/profile" : "/signin";
+  const btnText = status === "authenticated" ? "Profile" : "Sign In";
+
   return (
     <>
       <SignInButton
+        btnText={btnText}
         onClickHandler={() => {
-          router.push("/signin");
+          router.push(routeUrl);
         }}
         className={
           "rounded-full border border-primary bg-primary p-2 text-white shadow hover:bg-primary/90 hover:shadow-sm active:bg-white active:text-primary"
