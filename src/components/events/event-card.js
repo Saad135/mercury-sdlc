@@ -17,7 +17,7 @@ export default function EventCard({
         className={
           className
             ? className + " relative"
-            : "mx-2 mb-4 mt-2 border text-center shadow-lg sm:w-1/3 lg:w-1/4"
+            : "relative mx-2 mb-4 mt-2 border text-center shadow-lg sm:w-1/3 lg:w-1/4"
         }
       >
         {/* The toggle button */}
