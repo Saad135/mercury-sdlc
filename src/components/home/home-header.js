@@ -13,7 +13,7 @@ export default function HomeHeader() {
   );
 }
 
-function HeaderBase({ children }) {
+export function HeaderBase({ children }) {
   return (
     <>
       <div className="w-full bg-white">
