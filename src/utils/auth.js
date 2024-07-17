@@ -53,7 +53,7 @@ export const authOptions = {
 
       let fetchedUser = await fetchUser({ email: user?.email });
 
-      if (!user) {
+      if (!fetchedUser) {
         fetchedUser = await createUser({
           body: { email: user?.email, has_access: true },
         });
