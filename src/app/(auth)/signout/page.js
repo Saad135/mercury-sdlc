@@ -4,7 +4,7 @@ import { useSession } from "next-auth/react";
 import { useEffect } from "react";
 
 export default function SignOutPage() {
-  const { data: session, status } = useSession();
+  const { status } = useSession();
   const router = useRouter();
 
   if (status === "authenticated") {
