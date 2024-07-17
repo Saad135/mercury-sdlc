@@ -3,6 +3,7 @@
 function constructDirectusRestParams(
   method = null,
   body = null,
+  // eslint-disable-next-line prettier/prettier
   otherHeaders = null
 ) {
   let restParams = {};
