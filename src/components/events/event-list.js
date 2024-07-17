@@ -3,25 +3,36 @@
 import Container from "../container";
 import EventCard from "./event-card";
 
-export default function EventList({ listName, statesObj, containerClassName }) {
+export default function EventList({
+  listName,
+  statesObj,
+  containerClassName,
+  cardsClassName,
+}) {
   return (
     <>
       <ListContainer className={containerClassName}>
         <p className="mb-2 text-xl">{listName}</p>
 
-        <ListCards statesObj={statesObj} />
+        <ListCards className={cardsClassName} statesObj={statesObj} />
       </ListContainer>
     </>
   );
 }
 
-function ListCards({ statesObj }) {
+function ListCards({ statesObj, className }) {
   // States
 
   return (
     <>
       {/* Card list */}
-      <div className="w-full sm:flex sm:flex-wrap sm:justify-around">
+      <div
+        className={
+          className
+            ? className
+            : "w-full sm:flex sm:flex-wrap sm:justify-around"
+        }
+      >
         {/* Cards */}
         {statesObj?.attractionArr?.map((attractionItem, idx) => (
           <EventCard
