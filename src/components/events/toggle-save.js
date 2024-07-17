@@ -1,5 +1,7 @@
 "use client";
 
+import { useState } from "react";
+
 import { CheckMark, PlusSign, Spinner } from "../ui/icons";
 
 export default function ToggleSelection({
@@ -14,7 +16,9 @@ export default function ToggleSelection({
   const handleClick = async ({ clickCallback }) => {
     setIsLoading(true);
 
-    await clickCallback();
+    if (clickCallback) {
+      await clickCallback();
+    }
 
     setIsLoading(false);
   };
