@@ -165,7 +165,8 @@ export async function fetchAttractions() {
 export async function fetchSavedEvents(id) {
   let dataArr = [];
 
-  const endpoint = "/items/users?fields=posts.*&filter[id][_eq]=" + id;
+  const endpoint =
+    "/items/users?fields=posts.attractions_id.*&filter[id][_eq]=" + id;
   const errorMessage = "Could not fetch saved events";
 
   const queryResult = await callDirectusApi({
