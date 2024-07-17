@@ -28,7 +28,9 @@ export default function ToggleSelection({
       <div
         onClick={() => handleClick({ clickCallback: clickCallback })}
         className={`m-1 flex cursor-pointer justify-center rounded-full p-2 shadow ${
-          !isActive ? "bg-white text-primary" : "bg-primary text-white"
+          !isActive
+            ? "bg-white text-primary active:bg-primary active:text-white"
+            : "bg-primary text-white active:bg-white active:text-primary"
         } ${extraClassnames}`}
       >
         {isLoading ? <Spinner /> : !isActive ? <PlusSign /> : <CheckMark />}
