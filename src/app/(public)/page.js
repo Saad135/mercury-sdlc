@@ -19,12 +19,14 @@ export default function Home() {
 }
 
 function MainSection() {
+  const statesObj = useHomeStates();
+
   return (
     <>
       {/* Main section */}
       <MainDiv>
         {/* List of cards */}
-        <EventList listName={"Attractions"} />
+        <EventList listName={"Attractions"} statesObj={statesObj} />
       </MainDiv>
     </>
   );
