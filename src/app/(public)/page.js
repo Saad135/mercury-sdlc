@@ -1,6 +1,7 @@
 "use client";
 import { useEffect } from "react";
 
+import { useCommonAppStates } from "@/components/common-states-provider";
 import Container from "@/components/container";
 import EventList, { ListCards } from "@/components/events/event-list";
 import { CategoryTabs } from "@/components/home/home-components";
@@ -19,7 +20,12 @@ export default function Home() {
 }
 
 function MainSection() {
-  const statesObj = useHomeStates();
+  const statesContext = useHomeStates();
+  const commonStatesContext = useCommonAppStates();
+
+  const toggleSaveCallback = (id) => {
+    commonStatesContext?.toggleSavedIdArr(id);
+  };
 
   return (
     <>
@@ -27,7 +33,11 @@ function MainSection() {
       <MainDiv>
         {/* List of cards */}
         <EventList listName={"Attractions"}>
-          <ListCards statesObj={statesObj}></ListCards>
+          <ListCards
+            toggleClb={toggleSaveCallback}
+            statesObj={statesContext}
+            savedIds={commonStatesContext?.savedIdArr}
+          ></ListCards>
         </EventList>
       </MainDiv>
     </>
