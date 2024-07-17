@@ -1,6 +1,7 @@
 "use client";
 import Link from "next/link";
 
+import { useCommonAppStates } from "@/components/common-states-provider";
 import Container from "@/components/container";
 import { useDetailsPageStates } from "@/components/details/details-provider";
 import EventImage from "@/components/events/event-image";
@@ -26,9 +27,23 @@ export default function DetailsPage() {
 }
 
 function ToggleButton() {
+  const detailsContext = useDetailsPageStates();
+  const commonStatesContext = useCommonAppStates();
+
+  const toggleHandler = () => {
+    commonStatesContext?.toggleSavedIdArr(detailsContext?.event?.id);
+  };
+
   return (
     <>
-      <ToggleSelection showToggleDesc extraClassnames="border border-primary" />
+      <ToggleSelection
+        clickCallback={toggleHandler}
+        isActive={commonStatesContext?.savedIdArr?.includes(
+          detailsContext?.event?.id,
+        )}
+        showToggleDesc
+        extraClassnames="border border-primary"
+      />
     </>
   );
 }
