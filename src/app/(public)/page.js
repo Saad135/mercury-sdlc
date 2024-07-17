@@ -30,9 +30,9 @@ function MainSection() {
         {/* List of cards */}
         <EventList listName={"Attractions"}>
           <ListCards
-            toggleClb={commonStatesContext?.toggleSavedIdArr}
+            toggleClb={commonStatesContext?.toggleSavedEventArr}
             statesObj={statesContext}
-            savedIds={commonStatesContext?.savedIdArr}
+            savedEventArr={commonStatesContext?.savedEventArr}
           ></ListCards>
         </EventList>
       </MainDiv>

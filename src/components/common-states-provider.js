@@ -21,16 +21,20 @@ export default function AppProvider({ children }) {
 }
 
 function useInternalStates(defaultStateVals) {
-  const [savedIdArr, setSavedIdArr] = useState(defaultStateVals?.savedIdArr);
+  const [savedEventArr, setSavedEventArr] = useState(
+    defaultStateVals?.savedEventsArr,
+  );
 
-  const toggleSavedIdArr = (id) => {
-    setSavedIdArr(toggleItemInArr({ id: id, activeIds: savedIdArr }));
+  const toggleSavedEventArr = (event) => {
+    setSavedEventArr(
+      toggleItemInArr({ event: event, activeEvents: savedEventArr }),
+    );
   };
 
   return {
-    savedIdArr,
-    setSavedIdArr,
-    toggleSavedIdArr,
+    savedEventArr,
+    setSavedEventArr,
+    toggleSavedEventArr,
   };
 }
 
@@ -42,7 +46,7 @@ export function useCommonAppStates() {
 function getDefaults() {
   const defaultObj = {};
 
-  defaultObj.savedIdArr = [];
+  defaultObj.savedEventsArr = [];
 
   return defaultObj;
 }

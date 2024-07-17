@@ -23,7 +23,7 @@ export function ListCards({
   showToggle = true,
   isGroupedByCategory = true,
   toggleClb,
-  savedIds,
+  savedEventArr,
 }) {
   // States
 
@@ -48,7 +48,7 @@ export function ListCards({
           }
 
           const clickCallback = () => {
-            toggleClb(attractionItem?.id);
+            toggleClb(attractionItem);
           };
 
           // console.log(selectedCategory);
@@ -63,7 +63,9 @@ export function ListCards({
             >
               {showToggle && (
                 <ToggleSelection
-                  isActive={savedIds?.includes(attractionItem?.id)}
+                  isActive={savedEventArr?.some(
+                    (event) => event?.id === attractionItem?.id,
+                  )}
                   clickCallback={clickCallback}
                   extraClassnames="absolute right-0 top-0 z-30 "
                 />
