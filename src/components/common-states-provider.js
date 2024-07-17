@@ -26,9 +26,12 @@ function useInternalStates(defaultStateVals) {
   );
 
   const toggleSavedEventArr = (event) => {
-    setSavedEventArr(
-      toggleItemInArr({ event: event, activeEvents: savedEventArr }),
-    );
+    const newEventArr = toggleItemInArr({
+      event: event,
+      activeEvents: savedEventArr,
+    });
+
+    setSavedEventArr(newEventArr);
   };
 
   return {
