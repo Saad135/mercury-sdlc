@@ -78,7 +78,7 @@ export async function fetchCategories() {
 export async function fetchAttractions() {
   let dataArr = [];
 
-  const endpoint = "/items/attractions";
+  const endpoint = "/items/attractions?fields=*,category.name";
   const errorMessage = "Could not fetch attractions";
 
   const queryResult = await callDirectusApi({
