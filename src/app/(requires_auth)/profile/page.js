@@ -1,6 +1,5 @@
 "use client";
 import { useCommonAppStates } from "@/components/common-states-provider";
-import Container from "@/components/container";
 import EventList, { ListCards } from "@/components/events/event-list";
 
 export default function ProfilePage() {
@@ -21,13 +20,13 @@ export default function ProfilePage() {
         </Container> */}
 
         {/* Right Panel */}
-        <Container
+        {/* <Container
           className={
             "container mx-auto my-2 rounded-xl bg-white p-4 shadow sm:w-[48%]"
           }
         >
           Hi
-        </Container>
+        </Container> */}
       </div>
     </>
   );
