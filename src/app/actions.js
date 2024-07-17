@@ -30,7 +30,9 @@ export async function fetchEventsFromSession() {
 export async function updateEventsInSession({ eventArr }) {
   const session = await getIronSessionObj();
 
-  session.eventArr = eventArr;
+  const eventIds = eventArr?.map((event) => event?.id);
+
+  session.eventArr = eventIds;
 
   //   console.log(session);
 
