@@ -75,6 +75,48 @@ export async function fetchCategories() {
   return dataArr;
 }
 
+export async function checkUserAccessByEmail({ email }) {
+  let hasAccess = false;
+
+  const endpoint = `/items/users?filter[email][_eq]=${email}&filter[has_access][_eq]=true`;
+  const errorMessage = "Could not user by email";
+
+  if (email) {
+    const queryResult = await callDirectusApi({
+      endpoint,
+      errorMessage,
+      cache: "no-store",
+    });
+
+    if (queryResult?.data?.length) {
+      hasAccess = queryResult?.data[0]?.has_access;
+    }
+  }
+
+  return hasAccess;
+}
+
+export async function fetchUser({ email }) {
+  let user = null;
+
+  const endpoint = `/items/users?filter[email][_eq]=${email}`;
+  const errorMessage = "Could not fetch user";
+
+  if (email) {
+    const queryResult = await callDirectusApi({
+      endpoint,
+      errorMessage,
+      cache: "no-store",
+    });
+
+    if (queryResult?.data?.length) {
+      user = queryResult?.data[0];
+    }
+  }
+
+  return user;
+}
+
 export async function fetchAttractions() {
   let dataArr = [];
 
