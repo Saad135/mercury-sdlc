@@ -13,9 +13,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className={`${inter.className} bg-gray-100`}>
-        <div className="relative flex h-screen flex-col overflow-hidden">
-          {children}
-        </div>
+        <div className="relative flex h-screen flex-col">{children}</div>
       </body>
     </html>
   );
