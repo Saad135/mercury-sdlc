@@ -5,7 +5,7 @@ import { DynamoDBDocument } from "@aws-sdk/lib-dynamodb";
 import NextAuth from "next-auth/next";
 import EmailProvider from "next-auth/providers/email";
 
-import { checkUserAccessByEmail, fetchUser } from "@/lib/directus";
+import { createUser, fetchUser } from "@/lib/directus";
 
 const config = {
   credentials: {
@@ -51,12 +51,15 @@ export const authOptions = {
       // console.log(user, account, profile, email, credentials);
       let isAllowedToSignIn = null;
 
-      // Check against directus
-      if (account?.provider === "email") {
-        isAllowedToSignIn = await checkUserAccessByEmail({
-          email: user?.email,
+      let fetchedUser = await fetchUser({ email: user?.email });
+
+      if (!user) {
+        fetchedUser = await createUser({
+          body: { email: user?.email, has_access: true },
         });
       }
+
+      isAllowedToSignIn = fetchedUser?.has_access;
 
       // console.log(isAllowedToSignIn);
       if (isAllowedToSignIn) {
