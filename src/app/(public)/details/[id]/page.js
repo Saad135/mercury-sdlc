@@ -31,15 +31,15 @@ function ToggleButton() {
   const commonStatesContext = useCommonAppStates();
 
   const toggleHandler = () => {
-    commonStatesContext?.toggleSavedIdArr(detailsContext?.event?.id);
+    commonStatesContext?.toggleSavedEventArr(detailsContext?.event);
   };
 
   return (
     <>
       <ToggleSelection
         clickCallback={toggleHandler}
-        isActive={commonStatesContext?.savedIdArr?.includes(
-          detailsContext?.event?.id,
+        isActive={commonStatesContext?.savedEventArr?.some(
+          (event) => event?.id === detailsContext?.event?.id,
         )}
         showToggleDesc
         extraClassnames="border border-primary"
