@@ -3,17 +3,26 @@ import Link from "next/link";
 import EventImage from "./event-image";
 
 /* eslint-disable @next/next/no-img-element */
-export default function EventCard({ mediaUrl, title, id, className }) {
+export default function EventCard({
+  mediaUrl,
+  title,
+  id,
+  className,
+  children,
+}) {
   return (
     <>
       {/* Card */}
       <div
         className={
           className
-            ? className
+            ? className + " relative"
             : "mx-2 mb-4 mt-2 border text-center shadow-lg sm:w-1/3 lg:w-1/4"
         }
       >
+        {/* The toggle button */}
+        {children}
+
         {/* Card Image */}
         <div className="relative h-72 w-full">
           <CardImage mediaUrl={mediaUrl} />
