@@ -1,3 +1,5 @@
+import { useRouter } from "next/navigation";
+
 import SignInButton from "../sigin-button";
 import HomeLogo from "./home-logo";
 
@@ -26,9 +28,14 @@ export function HeaderBase({ children }) {
 }
 
 function HeaderSignIn() {
+  const router = useRouter();
+
   return (
     <>
       <SignInButton
+        onClickHandler={() => {
+          router.push("/profile");
+        }}
         className={
           "rounded-full border border-primary bg-primary p-2 text-white shadow hover:bg-primary/90 hover:shadow-sm active:bg-white active:text-primary"
         }
