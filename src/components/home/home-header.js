@@ -35,7 +35,7 @@ function HeaderSignIn() {
     <>
       <SignInButton
         onClickHandler={() => {
-          router.push("/profile");
+          router.push("/signin");
         }}
         className={
           "rounded-full border border-primary bg-primary p-2 text-white shadow hover:bg-primary/90 hover:shadow-sm active:bg-white active:text-primary"
