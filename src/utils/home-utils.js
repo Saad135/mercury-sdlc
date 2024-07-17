@@ -11,5 +11,10 @@ export function reformatEventItem(attrItem) {
     mediaUrl: attrItem?.media_url,
     permalink: attrItem?.permalink,
     description: attrItem?.description,
+    category: attrItem?.category?.name,
   };
+}
+
+export function extractCategoryNames(categoryArr) {
+  return categoryArr?.map((category) => category?.name);
 }

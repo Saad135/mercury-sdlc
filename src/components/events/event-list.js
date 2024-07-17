@@ -1,54 +1,87 @@
 "use client";
 
 import Container from "../container";
-import { useHomeStates } from "../home/home-provider";
 import EventCard from "./event-card";
+import ToggleSelection from "./toggle-save";
 
-export default function EventList({ listName }) {
+export default function EventList({ listName, containerClassName, children }) {
   return (
     <>
-      <ListContainer>
+      <ListContainer className={containerClassName}>
         <p className="mb-2 text-xl">{listName}</p>
 
-        <ListCards />
+        {children}
       </ListContainer>
     </>
   );
 }
 
-function ListCards() {
+export function ListCards({
+  statesObj,
+  className,
+  cardClassName,
+  showToggle = true,
+  isGroupedByCategory = true,
+  toggleClb,
+  savedEventArr,
+}) {
   // States
-  const statesArr = useEventListStates();
 
   return (
     <>
       {/* Card list */}
-      <div className="w-full sm:flex sm:flex-wrap sm:justify-around">
+      <div
+        className={
+          className
+            ? className
+            : "w-full sm:flex sm:flex-wrap sm:justify-around"
+        }
+      >
         {/* Cards */}
-        {statesArr?.attractionArr?.map((attractionItem, idx) => (
-          <EventCard
-            mediaUrl={attractionItem?.mediaUrl}
-            title={attractionItem?.title}
-            key={idx}
-            id={attractionItem?.id}
-          />
-        ))}
+        {statesObj?.attractionArr?.map((attractionItem, idx) => {
+          if (
+            isGroupedByCategory &&
+            (!attractionItem?.category ||
+              attractionItem?.category !== statesObj?.selectedCategory)
+          ) {
+            return null;
+          }
+
+          const clickCallback = () => {
+            toggleClb(attractionItem);
+          };
+
+          // console.log(selectedCategory);
+
+          return (
+            <EventCard
+              mediaUrl={attractionItem?.mediaUrl}
+              title={attractionItem?.title}
+              key={idx}
+              id={attractionItem?.id}
+              className={cardClassName}
+            >
+              {showToggle && (
+                <ToggleSelection
+                  isActive={savedEventArr?.some(
+                    (event) => event?.id === attractionItem?.id,
+                  )}
+                  clickCallback={clickCallback}
+                  extraClassnames="absolute right-0 top-0 z-30 "
+                />
+              )}
+            </EventCard>
+          );
+        })}
       </div>
     </>
   );
 }
 
-function ListContainer({ children }) {
+function ListContainer({ children, className }) {
   return (
     <>
-      <Container>{children}</Container>
+      <Container className={className}>{children}</Container>
     </>
   );
-}
-
-function useEventListStates() {
-  // State for list of cards
-  const stateArr = useHomeStates();
-
-  return stateArr;
 }

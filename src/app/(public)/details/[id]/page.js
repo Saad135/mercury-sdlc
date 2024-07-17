@@ -1,9 +1,11 @@
 "use client";
 import Link from "next/link";
 
+import { useCommonAppStates } from "@/components/common-states-provider";
 import Container from "@/components/container";
 import { useDetailsPageStates } from "@/components/details/details-provider";
 import EventImage from "@/components/events/event-image";
+import ToggleSelection from "@/components/events/toggle-save";
 import MainDiv from "@/components/main-div";
 
 export default function DetailsPage() {
@@ -14,10 +16,34 @@ export default function DetailsPage() {
 
         <EventTitle />
 
+        <ToggleButton />
+
         <EventDescription />
 
         <LearnMoreLink />
       </DetailsMain>
+    </>
+  );
+}
+
+function ToggleButton() {
+  const detailsContext = useDetailsPageStates();
+  const commonStatesContext = useCommonAppStates();
+
+  const toggleHandler = () => {
+    commonStatesContext?.toggleSavedEventArr(detailsContext?.event);
+  };
+
+  return (
+    <>
+      <ToggleSelection
+        clickCallback={toggleHandler}
+        isActive={commonStatesContext?.savedEventArr?.some(
+          (event) => event?.id === detailsContext?.event?.id,
+        )}
+        showToggleDesc
+        extraClassnames="border border-primary"
+      />
     </>
   );
 }

@@ -1,4 +1,4 @@
-import { fetchAttractions } from "@/lib/directus";
+import { fetchAttractions, fetchCategories } from "@/lib/directus";
 
 import HomeProvider from "./home-provider";
 
@@ -18,8 +18,13 @@ export default async function HomeServer({ children }) {
 }
 
 async function fetchHomeData() {
-  // Fetch attractions
-  const attractionArr = await fetchAttractions();
+  const homeData = {};
 
-  return { attractionArr };
+  // Fetch attractions
+  homeData.attractionArr = await fetchAttractions();
+
+  // Fetch Categories
+  homeData.categoryArr = await fetchCategories();
+
+  return homeData;
 }

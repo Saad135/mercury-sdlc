@@ -1,7 +1,7 @@
 "use client";
 import { createContext, useContext, useState } from "react";
 
-import { reformatEventsArr } from "@/utils/home-utils";
+import { extractCategoryNames, reformatEventsArr } from "@/utils/home-utils";
 
 const HomeContext = createContext(null);
 
@@ -25,7 +25,23 @@ function useInternalStates(defaultStateVals) {
     defaultStateVals?.defaultAttractionsArr,
   );
 
-  return { attractionArr, setAttractionArr };
+  // State for categories
+  const [categories, setCategories] = useState(
+    defaultStateVals?.defaultCategoriesArr,
+  );
+
+  const [selectedCategory, setSelectedCategory] = useState(
+    defaultStateVals?.defaultCategoriesArr[0],
+  );
+
+  return {
+    attractionArr,
+    setAttractionArr,
+    categories,
+    setCategories,
+    selectedCategory,
+    setSelectedCategory,
+  };
 }
 
 export function useHomeStates() {
@@ -38,5 +54,9 @@ function getDefaults({ homeData }) {
     ? reformatEventsArr(homeData?.attractionArr)
     : [1, 2, 3, 4, 5, 6, 7];
 
-  return { defaultAttractionsArr };
+  const defaultCategoriesArr = homeData?.categoryArr
+    ? extractCategoryNames(homeData?.categoryArr)
+    : ["Category A", "Category B", "Category C"];
+
+  return { defaultAttractionsArr, defaultCategoriesArr };
 }

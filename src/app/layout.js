@@ -2,8 +2,8 @@ import "./globals.css";
 
 import { Inter } from "next/font/google";
 
-import HomeHeader from "@/components/home/home-header";
-import HomeServer from "@/components/home/home-server";
+import SavedEventsServer from "@/components/app/user-saved-server";
+import Providers from "@/components/root-providers";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -16,35 +16,12 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className={`${inter.className} bg-gray-100`}>
-        <div className="relative flex h-screen flex-col overflow-hidden">
-          {/* Header */}
-          <RootHeader />
-
-          <RootMain>
-            {/* Children */}
-            {children}
-          </RootMain>
+        <div className="relative flex h-screen flex-col">
+          <Providers>
+            <SavedEventsServer>{children}</SavedEventsServer>
+          </Providers>
         </div>
       </body>
     </html>
-  );
-}
-
-function RootHeader() {
-  return (
-    <>
-      <HomeHeader />
-    </>
-  );
-}
-
-function RootMain({ children }) {
-  return (
-    <>
-      <HomeServer>
-        {/* Children */}
-        {children}
-      </HomeServer>
-    </>
   );
 }
