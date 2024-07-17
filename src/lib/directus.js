@@ -3,7 +3,7 @@
 function constructDirectusRestParams(
   method = null,
   body = null,
-  otherHeaders = null,
+  otherHeaders = null
 ) {
   let restParams = {};
   restParams.headers = {
@@ -147,6 +147,25 @@ export async function fetchAttractions() {
 
   const endpoint = "/items/attractions?fields=*,category.name";
   const errorMessage = "Could not fetch attractions";
+
+  const queryResult = await callDirectusApi({
+    endpoint,
+    errorMessage,
+    cache: "no-store",
+  });
+
+  if (queryResult) {
+    dataArr = queryResult.data;
+  }
+
+  return dataArr;
+}
+
+export async function fetchSavedEvents(id) {
+  let dataArr = [];
+
+  const endpoint = "/items/users?fields=posts.*&filter[id][_eq]=" + id;
+  const errorMessage = "Could not fetch saved events";
 
   const queryResult = await callDirectusApi({
     endpoint,
