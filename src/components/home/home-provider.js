@@ -30,7 +30,16 @@ function useInternalStates(defaultStateVals) {
     defaultStateVals?.defaultCategoriesArr,
   );
 
-  return { attractionArr, setAttractionArr, categories, setCategories };
+  const [selectedCategory, setSelectedCategory] = useState("");
+
+  return {
+    attractionArr,
+    setAttractionArr,
+    categories,
+    setCategories,
+    selectedCategory,
+    setSelectedCategory,
+  };
 }
 
 export function useHomeStates() {
