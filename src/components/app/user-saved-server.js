@@ -4,6 +4,7 @@ import { getServerSession } from "next-auth";
 
 import { fetchSavedEvents } from "@/lib/directus";
 import { authOptions } from "@/utils/auth";
+import { reformatEventItem } from "@/utils/home-utils";
 
 import AppProvider from "../common-states-provider";
 
@@ -29,7 +30,10 @@ export default async function SavedEventsServer({ children }) {
   const eventArrSet = new Set(combinedEventArr?.map(JSON.stringify));
   combinedEventArr = Array.from(eventArrSet).map(JSON.parse);
 
-  // console.log(combinedEventArr);
+  // reformat to web app formmat
+  combinedEventArr = combinedEventArr?.map((event) => reformatEventItem(event));
+
+  console.log(combinedEventArr);
 
   return (
     <>
