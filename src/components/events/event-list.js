@@ -8,19 +8,24 @@ export default function EventList({
   statesObj,
   containerClassName,
   cardsClassName,
+  cardItemClassName,
 }) {
   return (
     <>
       <ListContainer className={containerClassName}>
         <p className="mb-2 text-xl">{listName}</p>
 
-        <ListCards className={cardsClassName} statesObj={statesObj} />
+        <ListCards
+          className={cardsClassName}
+          statesObj={statesObj}
+          cardClassName={cardItemClassName}
+        />
       </ListContainer>
     </>
   );
 }
 
-function ListCards({ statesObj, className }) {
+function ListCards({ statesObj, className, cardClassName }) {
   // States
 
   return (
@@ -40,6 +45,7 @@ function ListCards({ statesObj, className }) {
             title={attractionItem?.title}
             key={idx}
             id={attractionItem?.id}
+            className={cardClassName}
           />
         ))}
       </div>
