@@ -1,7 +1,6 @@
-import { getIronSession } from "iron-session";
-import { cookies } from "next/headers";
 import { getServerSession } from "next-auth";
 
+import { fetchEventsFromSession } from "@/app/actions";
 import { fetchSavedEvents } from "@/lib/directus";
 import { authOptions } from "@/utils/auth";
 import { reformatEventItem } from "@/utils/home-utils";
@@ -42,28 +41,4 @@ export default async function SavedEventsServer({ children }) {
       </AppProvider>
     </>
   );
-}
-
-async function fetchEventsFromSession() {
-  let eventArr = [];
-
-  const session = getIronSessionObj();
-
-  if (session?.eventArr) {
-    eventArr = session?.eventArr;
-  }
-
-  //   console.log(session);
-
-  return eventArr;
-}
-
-async function getIronSessionObj() {
-  // Iron session object
-  const session = await getIronSession(cookies(), {
-    password: process.env.IRON_SESSION_PASS,
-    cookieName: process.env.IRON_SESSION_COOKIE_NAME,
-  });
-
-  return session;
 }
