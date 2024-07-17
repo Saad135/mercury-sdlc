@@ -40,6 +40,7 @@ function PanelContentEvents({ className }) {
         <ListCards
           cardClassName={"mx-2 mb-4 mt-2 border text-center shadow-lg w-full"}
           statesObj={testObj}
+          isGroupedByCategory={false}
         ></ListCards>
       </EventList>
     </>

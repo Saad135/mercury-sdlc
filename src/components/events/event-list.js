@@ -21,6 +21,8 @@ export function ListCards({
   className,
   cardClassName,
   showToggle = true,
+  selectedCategory,
+  isGroupedByCategory = true,
 }) {
   // States
 
@@ -35,19 +37,31 @@ export function ListCards({
         }
       >
         {/* Cards */}
-        {statesObj?.attractionArr?.map((attractionItem, idx) => (
-          <EventCard
-            mediaUrl={attractionItem?.mediaUrl}
-            title={attractionItem?.title}
-            key={idx}
-            id={attractionItem?.id}
-            className={cardClassName}
-          >
-            {showToggle && (
-              <ToggleSelection extraClassnames="absolute right-0 top-0 z-30 " />
-            )}
-          </EventCard>
-        ))}
+        {statesObj?.attractionArr?.map((attractionItem, idx) => {
+          if (
+            isGroupedByCategory &&
+            (!attractionItem?.category ||
+              attractionItem?.category !== selectedCategory)
+          ) {
+            return null;
+          }
+
+          // console.log(selectedCategory);
+
+          return (
+            <EventCard
+              mediaUrl={attractionItem?.mediaUrl}
+              title={attractionItem?.title}
+              key={idx}
+              id={attractionItem?.id}
+              className={cardClassName}
+            >
+              {showToggle && (
+                <ToggleSelection extraClassnames="absolute right-0 top-0 z-30 " />
+              )}
+            </EventCard>
+          );
+        })}
       </div>
     </>
   );
