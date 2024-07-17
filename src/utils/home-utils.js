@@ -13,3 +13,7 @@ export function reformatEventItem(attrItem) {
     description: attrItem?.description,
   };
 }
+
+export function extractCategoryNames(categoryArr) {
+  return categoryArr?.map((category) => category?.name);
+}
