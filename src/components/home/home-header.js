@@ -4,11 +4,21 @@ import HomeLogo from "./home-logo";
 export default function HomeHeader() {
   return (
     <>
+      <HeaderBase>
+        <HeaderLogo />
+
+        <HeaderSignIn />
+      </HeaderBase>
+    </>
+  );
+}
+
+function HeaderBase({ children }) {
+  return (
+    <>
       <div className="w-full bg-white">
         <div className="container mx-auto mb-4 flex items-center justify-between p-4">
-          <HeaderLogo />
-
-          <HeaderSignIn />
+          {children}
         </div>
       </div>
     </>
