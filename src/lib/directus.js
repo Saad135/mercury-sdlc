@@ -117,6 +117,31 @@ export async function fetchUser({ email }) {
   return user;
 }
 
+export async function createUser({ body }) {
+  let createdUser = null;
+
+  const endpoint = "/items/users";
+  const errorMessage = "Could not create user in directus";
+
+  const otherHeaders = {
+    "Content-Type": "application/json",
+  };
+  const restParams = constructDirectusRestParams("POST", body, otherHeaders);
+
+  const queryResult = await callDirectusApi({
+    endpoint,
+    restParams,
+    errorMessage,
+    cache: "no-store",
+  });
+
+  if (queryResult) {
+    createdUser = queryResult.data;
+  }
+
+  return createdUser;
+}
+
 export async function fetchAttractions() {
   let dataArr = [];
 
