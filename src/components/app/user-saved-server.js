@@ -1,6 +1,5 @@
 import { getServerSession } from "next-auth";
 
-import { fetchEventsFromSession } from "@/app/actions";
 import { fetchSavedEvents } from "@/lib/directus";
 import { authOptions } from "@/utils/auth";
 import { reformatEventItem } from "@/utils/home-utils";
@@ -13,7 +12,8 @@ export default async function SavedEventsServer({ children }) {
   const userId = session?.user?.id;
 
   //   const sessionEventsArr = await fetchEventsFromSession();
-  const eventsfromSession = await fetchEventsFromSession();
+  // const eventsfromSession = await fetchEventsFromSession();
+  const eventsfromSession = [];
 
   let eventsfromDirectus = [];
   if (userId) {

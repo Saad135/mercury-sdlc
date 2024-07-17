@@ -118,6 +118,31 @@ export async function fetchUser({ email }) {
   return user;
 }
 
+export async function updateUser({ body, id }) {
+  let updatedUser = null;
+
+  const endpoint = "/items/users/" + id;
+  const errorMessage = "Could not create user in directus";
+
+  const otherHeaders = {
+    "Content-Type": "application/json",
+  };
+  const restParams = constructDirectusRestParams("PATCH", body, otherHeaders);
+
+  const queryResult = await callDirectusApi({
+    endpoint,
+    restParams,
+    errorMessage,
+    cache: "no-store",
+  });
+
+  if (queryResult) {
+    updatedUser = queryResult.data;
+  }
+
+  return updatedUser;
+}
+
 export async function createUser({ body }) {
   let createdUser = null;
 
