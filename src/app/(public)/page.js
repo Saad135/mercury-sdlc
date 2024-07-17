@@ -23,10 +23,6 @@ function MainSection() {
   const statesContext = useHomeStates();
   const commonStatesContext = useCommonAppStates();
 
-  const toggleSaveCallback = (id) => {
-    commonStatesContext?.toggleSavedIdArr(id);
-  };
-
   return (
     <>
       {/* Main section */}
@@ -34,7 +30,7 @@ function MainSection() {
         {/* List of cards */}
         <EventList listName={"Attractions"}>
           <ListCards
-            toggleClb={toggleSaveCallback}
+            toggleClb={commonStatesContext?.toggleSavedIdArr}
             statesObj={statesContext}
             savedIds={commonStatesContext?.savedIdArr}
           ></ListCards>
