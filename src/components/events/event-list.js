@@ -2,6 +2,7 @@
 
 import Container from "../container";
 import EventCard from "./event-card";
+import ToggleSelection from "./toggle-save";
 
 export default function EventList({
   listName,
@@ -41,7 +42,9 @@ export function ListCards({ statesObj, className, cardClassName }) {
             key={idx}
             id={attractionItem?.id}
             className={cardClassName}
-          />
+          >
+            <ToggleSelection extraClassnames="absolute right-0 top-0 z-30 " />
+          </EventCard>
         ))}
       </div>
     </>
