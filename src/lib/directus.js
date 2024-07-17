@@ -56,6 +56,25 @@ async function callDirectusApi({
   return queryResult;
 }
 
+export async function fetchCategories() {
+  let dataArr = [];
+
+  const endpoint = "/items/categories";
+  const errorMessage = "Could not fetch categories";
+
+  const queryResult = await callDirectusApi({
+    endpoint,
+    errorMessage,
+    cache: "no-store",
+  });
+
+  if (queryResult) {
+    dataArr = queryResult.data;
+  }
+
+  return dataArr;
+}
+
 export async function fetchAttractions() {
   let dataArr = [];
 
