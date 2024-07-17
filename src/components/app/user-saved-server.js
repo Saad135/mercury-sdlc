@@ -33,7 +33,7 @@ export default async function SavedEventsServer({ children }) {
   // reformat to web app formmat
   combinedEventArr = combinedEventArr?.map((event) => reformatEventItem(event));
 
-  console.log(combinedEventArr);
+  // console.log(combinedEventArr);
 
   return (
     <>
