@@ -35,8 +35,10 @@ function EmailLoginForm() {
   const onSubmitHandler = (e) => {
     e.preventDefault();
     // Perform signin
-    console.log("emailinputval", emailInputRef.current?.value);
-    signIn("email", { email: emailInputRef.current?.value, callbackUrl: "/" });
+    signIn("email", {
+      email: emailInputRef.current?.value,
+      callbackUrl: "/profile",
+    });
 
     // Disable buttton and set button text to loading
     buttonRef.current.disabled = true;
